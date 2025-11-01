@@ -9,10 +9,10 @@
 8. Temperature Converter (celcius to fahrenheit) -->
 
 <div class="mx-2 my-4">
-  <p [hidden]="flag">Hi, I'm Sai Nath Myana, I work at Apple</p>
-  <p hidden="{{ flag }}">Hi, I'm Sai Nath Myana, I work at Apple</p>
+  <p [hidden]="flag">Hi, I'm Sai Nath Myana </p>
+  <!-- <p hidden="{{ flag }}">Hi, I'm Sai Nath Myana</p> -->
   <button class="btn btn-primary mx-2" (click)="toggle()">Toggle Button</button>
-  <button class="btn btn-primary mx-2" (click)="toggle()">Toggle Button</button>
+  <!-- <button class="btn btn-primary mx-2" (click)="toggle()">Toggle Button</button> -->
 </div>
 <div class="mx-4">
   <textarea [(ngModel)]="msg" maxlength="100"></textarea>
@@ -45,8 +45,8 @@
 </div>
 
 <div class="mx-2">
-  <!-- <input [type]="inputType" /> -->
-   <input type="{{inputType}}" />
+  <input [type]="inputType" />
+   <!-- <input type="{{inputType}}" /> -->
 
   <button class="btn btn-primary" (click)="textPassword()">textPassword</button>
 </div>
@@ -79,3 +79,30 @@
 </div>
 
 <h1>--------------------------------------------------------------</h1>
+
+<div class="mx-2">hello {{name}}, welcome to Apple</div>
+<div class="mx-2 mt-2" >
+    <img src="{{image}}" alt="">
+    <img [src]="image" alt="">
+</div>
+
+<div class="mx-2 mt-2 mb-4" >
+    <!-- <button class="btn btn-primary" disabled="{{saveme}}">saveme</button> -->
+    <button class="btn btn-primary" [disabled]="saveme" >saveme</button>
+    <button class="btn btn-primary" (click)="enableButton()">saveme</button>
+</div>
+
+<div class="mx-2 mt-2 mb-4" >
+    <button class="btn btn-secondary " (click)="counter()">increment</button>
+    <p>the counter value is {{result1}}</p>
+</div>
+
+<div class="mx-3 mb-3">
+    <input [(ngModel)]="username1">
+    <input [value]="username">
+    <p>the username is {{username}}</p>
+    <p>the username is {{username1}}</p>
+</div>
+
+<!-- <button [attr.aria-label]="aria-label" class="btn-primary">Click Me</button> -->
+<input id="myInput" value="Hello">
