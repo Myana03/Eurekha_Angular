@@ -3,11 +3,11 @@ import { Categories } from './components/categories/categories';
 import { Navbar } from './components/Navbar/navbar';
 import { Carousel } from './components/carousel/carousel';
 import { Footer } from './components/footer/footer';
-import { TopDeals } from './components/top-deals/top-deals';
-
+import { DataBinding } from './components/data-binding/data-binding';
+import { Assignment1 } from './components/assignment1/assignment1';
 @Component({
   selector: 'app-root',
-  imports: [Navbar,Categories,Carousel,TopDeals,Footer],
+  imports: [Navbar,Assignment1],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
