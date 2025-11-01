@@ -5,9 +5,10 @@ import { Carousel } from './components/carousel/carousel';
 import { Footer } from './components/footer/footer';
 import { DataBinding } from './components/data-binding/data-binding';
 import { Assignment1 } from './components/assignment1/assignment1';
+import { Body } from './components/body/body';
 @Component({
   selector: 'app-root',
-  imports: [Navbar,Assignment1],
+  imports: [Navbar,Body],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
