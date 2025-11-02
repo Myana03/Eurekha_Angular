@@ -1,0 +1,235 @@
+<h2 class="text-center">Directives</h2>
+<div class="border border-2 rounded-2 p-2 m-2">
+    <div>if-else Directive</div>
+    <div>
+        <input type="number" [(ngModel)]="num" class="mx-2" />
+    </div>
+    @if(num%2===0){
+    <div>{{ num }} is even</div>
+    }@else{
+    <div>{{ num }} is odd</div>
+    }
+</div>
+
+<div class="border border-2 rounded-2 p-2 m-2">
+    <div>switchCase</div>
+    @switch (num) {
+        @case (1) {<h2>Monday</h2>}
+        @case (2) {<h2>Tuesday</h2>}
+        @case (3) {<h2>Wednesday</h2>}
+        @case (4) { <h1>Thursday</h1> }
+        @case (5) { <h1>Friday</h1> }
+        @case (6) { <h1>Saturday</h1> }
+        @case (7) { <h1>Sunday</h1> }
+        @default{<h2>not a valid number</h2>}
+        }
+</div>
+
+<div class="border border-2 rounded-2 p-2 m-2">
+    <div>learn 'for' directive</div>
+    <ol>
+        @for(team of f1Teams;track $index){
+            <li>{{team}}</li>
+        }
+    </ol>
+</div>
+
+<div class="border border-2 rounded-2 p-2 m-2">
+    <table class="table table-bordered text-center">
+        <thead class="table-light">
+            <tr>
+                <th>EmployeeID</th>
+                <th>name</th>
+                <th>salary</th>
+                <th>gender</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(emp of employees;track $index){
+            <tr>
+                <td>{{emp.eId}}</td>
+                <td>{{emp.name}}</td>
+                <td>{{emp.sal}}</td>
+                <td>{{emp.gender}}</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+
+<div class="border border-2 rounded-2 p-2 m-2">
+    <table class="table table-bordered text-center">
+        <thead class="table-light">
+            <tr>
+                <th>EmployeeID</th>
+                <th>name</th>
+                <th>salary</th>
+                <th>gender</th>
+                <th>status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(emp of employees;track $index){
+            <tr>
+                <td>{{emp.eId}}</td>
+                <td>{{emp.name}}</td>
+                <td>{{emp.sal}}</td>
+                <td>{{emp.gender}}</td>
+                @if(emp.sal>8000){
+                    <td>high Earner</td>
+                }@else{
+                    <td>regular Employee</td>
+                }
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+<div class="border border-2 rounded-2 p-2 m-2">
+<button class="btn btn-primary" (click)="isLogged()">login</button>
+   <div>
+     @if(isLoggedIn){
+        <h2>welcome Back !!</h2>
+    }@else{
+        <h2>please login</h2>
+    }
+   </div>
+</div>
+
+<div class="border border-2 rounded-2 p-2 m-2">
+    <div>
+        @if(userRole=='manager'){
+            <h2>hello Manager</h2>
+        }@else if(userRole==='admin'){
+            <h2>hello Admin</h2>
+        }@else{
+            <h2>welcome guest</h2>
+        }
+    </div>
+</div>
+<div class="border border-2 rounded-2 p-2 m-2">
+@switch (userRole) {
+  @case ('admin') { <p>Welcome Admin</p> }
+  @case ('manager') { <p>Welcome Manager</p> }
+  @default { <p>Access limited</p> }
+}
+</div> 
+
+
+<div class="border border-2 rounded-2 p-2 m-2">
+    <h3>using ul list</h3>
+    <ul>
+        @for(team of f1Teams;track $index){
+        <li>{{team}}</li>
+        }
+    </ul>
+</div>
+
+<div class="border border-2 rounded-2 p-2 m-2">
+    <select [(ngModel)]="selectedDept">
+        <option value="IT">IT</option>
+        <option value="HR">HR</option>
+        <option value="Finance">Finance</option>
+    </select>
+
+    @switch (selectedDept){
+        @case ('IT') {
+            <table class="table table-bordered">
+                <tbody>
+                        @for(emp of employees1;track $index){
+                            @if(emp.dept=='IT'){
+                        <tr>
+                        <td>{{emp.eId}}</td>
+                        <td>{{emp.name}}</td>
+                        <td>{{emp.sal}}</td>
+                        <td>{{emp.gender}}</td>
+                        <td>{{emp.dept}}</td>
+                        </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        }
+          @case ('Finance') {
+            <table class="table table-bordered">
+                <tbody >
+                        @for(emp of employees1;track $index){
+                            @if(emp.dept=='Finance'){
+                        <tr>
+                        <td>{{emp.eId}}</td>
+                        <td>{{emp.name}}</td>
+                        <td>{{emp.sal}}</td>
+                        <td>{{emp.gender}}</td>
+                        <td>{{emp.dept}}</td>
+                        </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        }
+            @case ('HR') {
+            <table class="table table-bordered">
+                <tbody >
+                        @for(emp of employees1;track $index){
+                            @if(emp.dept=='HR'){
+                        <tr>
+                        <td>{{emp.eId}}</td>
+                        <td>{{emp.name}}</td>
+                        <td>{{emp.sal}}</td>
+                        <td>{{emp.gender}}</td>
+                        <td>{{emp.dept}}</td>
+                        </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        }
+        @default {
+        <p>Please select a department</p>
+}
+    }
+</div>
+
+
+<div class="border border-2 rounded-2 p-2 m-2">
+    <select [(ngModel)]="selectedDept">
+        <option value="All">All Departments</option>
+        <option value="IT">IT</option>
+        <option value="HR">HR</option>
+        <option value="Finance">Finance</option>
+    </select>
+            <table class="table table-bordered form-select w-auto mb-3">
+                <tbody>
+                        @for(emp of employees1;track $index){
+                            @if(emp.dept==selectedDept || selectedDept=='All'){
+                        <tr>
+                        <td>{{emp.eId}}</td>
+                        <td>{{emp.name}}</td>
+                        <td>{{emp.sal}}</td>
+                        <td>{{emp.gender}}</td>
+                        <td>{{emp.dept}}</td>
+                        </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+</div>
+
+
+<div class="border border-2 m-2 p-2">
+    <ul>
+        @for(task of tasks;track $index){
+        <li
+            [ngClass]="{completed:task.completed}"
+            [ngStyle]="{
+                'color':task.completed?'green':'black'
+            }">
+            <input type="checkbox" [checked]="task.completed" (change)="toggleTask(task)"/>
+            {{task.title}}
+            completed: {{task.completed}}
+        </li>
+    }
+    </ul>
+</div>
