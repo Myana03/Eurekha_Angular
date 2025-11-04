@@ -1,4 +1,4 @@
-<h2 class="text-center">Directives</h2>
+<!-- <h2 class="text-center">Directives</h2>
 <div class="border border-2 rounded-2 p-2 m-2">
     <div>if-else Directive</div>
     <div>
@@ -232,4 +232,131 @@
         </li>
     }
     </ul>
+</div> -->
+
+<!-- <div class="border border-2 m-2 p-2"> -->
+<!-- <input type="text" [value]="username">
+    <p>Hello, {{ username }}</p>
+
+      <input type="text" [(ngModel)]="username1">
+    <p>Hello, {{ username1 }}</p>
+
+    <button class="btn btn-primary" [disabled]="isDisabled">iam the one who gets toggled</button>
+   
+
+    <button class="btn btn-primary mx-2" (click)="isDisabled=!isDisabled">toggle</button>
+    <input [disabled]="isDisabled" class="mx-2" [placeholder]="placeholder()">
+
+
+  <input type="checkbox" [checked]="showPassword" (change)="showPassword = !showPassword">
+  Show Password
+
+
+<input [type]="showPassword ? 'text' : 'password'" value="mypassword" />
+
+<input [value]="defaultText">
+
+<button (click)="changeDefault()">
+  Change Text
+</button> -->
+<!-- </div> -->
+<!-- <h3 class="text-center mt-4">attribute directives</h3>
+<div class="border border-2 rounded-2 p-2 m-3">
+    <h3 class="text-center">ngStyle</h3>
+    <input type="number" [(ngModel)]="num1">
+    <p [style.color]= "num1%2==0? 'blue':'red'" >add a style</p>
+    <p [style.fontSize.px]= "num1%2==0? '48':'24'"> Add style with unit </p>
+    <p [style.background-color]="flag? 'red':'yellow'">add background-color dynamically</p>
+    <button class="btn btn-primary" (click)="flag=!flag">color change</button>
+    <p [ngStyle]="num1%2==0?myStyle1:myStyle2">ngStyles for multiple values</p>
+    <p [ngStyle]="myFunction()">ngStyles using function method</p>
+    <button class="btn btn-primary" (click)="flag=!flag">ngStyle button</button>
+</div>
+
+<div class="border border-2 rounded-2 p-2 m-3">
+    <h3 class="text-center">ngClass</h3>
+<input [(ngModel)]="num1" type="number">
+<button [ngClass]="num1%2==0? 'btn-success':'btn-danger'" class="btn mx-2">button</button>
+</div> -->
+
+<div class="border border-2 rounded-2 m-2 p-2">
+  <h3 class="text-center">assignment</h3>
+  <h4>problem1</h4>
+  <div>
+    <select [(ngModel)]="selection">
+      <option value="All">All</option>
+      <option value="completed">completed</option>
+      <option value="pending">pending</option>
+    </select>
+  </div>
+
+  <ul>
+    @for(task of tasks;track $index){ @if(selection === 'All' || (selection === 'completed' &&
+    task.completed) || (selection === 'pending' && !task.completed)) {
+    <li [ngStyle]="task.completed ? { 'text-decoration': 'line-through' } : {}">
+      <input type="checkbox" (change)="taskToggle(task)" [checked]="task.completed" />
+      {{ task.title }}
+      {{ task.completed }}
+    </li>
+    } }
+  </ul>
+</div>
+
+<div class="border border-2 rounded-2 m-2 p-2">
+  <h4>problem2</h4>
+  <select [(ngModel)]="selectedCategory">
+    <option value="all">All</option>
+    <option value="electronics">Electronics</option>
+    <option value="jewelery">Jewelery</option>
+    <option value="men's clothing">Men's Clothing</option>
+    <option value="women's clothing">Women's Clothing</option>
+  </select>
+  <div class="container">
+    <div class="row">
+      @for(c of filteredproducts(); track c.id) {
+      <div class="col">
+        <div class="card text-center" style="width: 10rem">
+          <img [src]="c.image" />
+          <div class="card-body">
+            <h6 class="card-title">{{ c.title }}</h6>
+            <p class="card-text">${{ c.price }}</p>
+            <p class="card-text">{{ c.category }}</p>
+          </div>
+        </div>
+      </div>
+      } @empty {
+      <p class="text-center">No products found.</p>
+      }
+    </div>
+  </div>
+</div>
+
+<div class="border border-2 rounded-2 m-2 p-2">
+  <h4>problem3</h4>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(i of cartItems;track $index){
+      <tr>
+        <td>{{ i.name }}</td>
+        <td>{{ i.price }}</td>
+        <td>
+          <button class="btn-sm" (click)="increase(i)">+</button>
+          <button class="btn-sm mx-2" (click)="decrease(i)">-</button>
+        </td>
+        <td>{{ i.price * i.qty }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  <div class="text-end">
+    <h4>Total: ₹{{ total() }}</h4>
+  </div>
 </div>

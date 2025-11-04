@@ -1,0 +1,24 @@
+.inactive {
+  color: gray;
+  font-style: italic;
+  opacity: 0.5;
+}
+.manager {
+  color: blue;
+  font-weight: bold;
+}
+.salary1 {
+  background-color: lightblue;
+  color: white;
+
+}
+.salary2 {
+  background-color: orange;
+  color: white;
+
+}
+.salary3 {
+  background-color: red;
+  color: white;
+
+}
