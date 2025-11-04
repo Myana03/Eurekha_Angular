@@ -360,3 +360,55 @@
     <h4>Total: ₹{{ total() }}</h4>
   </div>
 </div>
+
+<div class="border bordered-2 m-2 p-2">
+  <h3 class="text-center mb-2">Question 4</h3>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>eId</th>
+        <th>Name</th>
+        <th>Sal</th>
+        <th>Gender</th>
+        <th>Dept</th>
+        <th>Status</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(emp of employees2;track $index){
+      <tr>
+        <td>{{ emp.eId }}</td>
+        <td>{{ emp.name }}</td>
+        <td
+          [ngStyle]="{ color: emp.sal > 50000 ? 'green' : 'red' }"
+          [ngClass]="{
+            'salary1': emp.sal > 70000,
+            'salary2': emp.sal >= 40000 && emp.sal <= 70000,
+            'salary3': emp.sal < 40000
+          }"
+        >
+          {{ emp.sal }}
+        </td>
+        <td>{{ emp.gender }}</td>
+        <td>{{ emp.dept }}</td>
+        <td [ngClass]="{ 'inactive': emp.status === 'Inactive' }">{{ emp.status }}</td>
+        <td
+          [ngClass]="{ 'manager': emp.role === 'Manager' }"
+          [ngStyle]="{
+            'background-color':
+              emp.role === 'Manager'
+                ? 'lightyellow'
+                : emp.role === 'Developer'
+                ? 'lightblue'
+                : 'lightpink'
+          }"
+        >
+          {{ emp.role }}
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
