@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import products from './products_data';
 import { FormsModule } from '@angular/forms';
+import { TextOnly } from '../../custom_directives/text-only';
+import { ZoomIn } from '../../custom_directives/zoom-in';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faPhone,
@@ -18,7 +20,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-products',
-  imports: [FormsModule, FontAwesomeModule, NgxPaginationModule],
+  imports: [FormsModule, FontAwesomeModule, NgxPaginationModule,TextOnly,ZoomIn],
   templateUrl: './products.html',
   styleUrl: './products.css',
 })
