@@ -381,12 +381,12 @@
       <tr>
         <td>{{ emp.eId }}</td>
         <td>{{ emp.name }}</td>
-        <td
-          [ngStyle]="{ color: emp.sal > 50000 ? 'green' : 'red' }"
+        <td class="badge"
+          [ngStyle]="{ color: emp.sal > 50000 ? 'yellow' : 'red' }"
           [ngClass]="{
-            'salary1': emp.sal > 70000,
-            'salary2': emp.sal >= 40000 && emp.sal <= 70000,
-            'salary3': emp.sal < 40000
+            'bg-success': emp.sal > 70000,
+            'bg-warning': emp.sal >= 40000 && emp.sal <= 70000,
+            'bg-danger': emp.sal < 40000
           }"
         >
           {{ emp.sal }}
@@ -394,7 +394,7 @@
         <td>{{ emp.gender }}</td>
         <td>{{ emp.dept }}</td>
         <td [ngClass]="{ 'inactive': emp.status === 'Inactive' }">{{ emp.status }}</td>
-        <td
+        <td 
           [ngClass]="{ 'manager': emp.role === 'Manager' }"
           [ngStyle]="{
             'background-color':
