@@ -7,9 +7,10 @@ import { TypescriptUserlist } from '../typescript-userlist/typescript-userlist';
 import { Products } from '../products/products';
 import { MyModal } from '../my-modal/my-modal';
 import { Demo1 } from '../demo1/demo1';
+import { EmployeeCRUD } from '../employee-crud/employee-crud';
 @Component({
   selector: 'app-body',
-  imports: [Products],
+  imports: [EmployeeCRUD],
   templateUrl: './body.html',
   styleUrl: './body.css',
 })

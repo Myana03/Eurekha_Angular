@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-my-modal',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './my-modal.css',
 })
 export class MyModal {
-
+@Input() employee: any;
 }

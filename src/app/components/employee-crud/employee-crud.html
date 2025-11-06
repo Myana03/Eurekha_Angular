@@ -1,0 +1,77 @@
+
+<div class="border border-2 rounded-2 p-3 m-3 bg-light">
+  <div style="display: flex; gap: 5px;">
+    <input type="number" placeholder="Enter eId" [(ngModel)]="eId" class="form-control w-auto" />
+
+    <input type="text" placeholder="Enter Name" [(ngModel)]="name" class="form-control w-auto" />
+    <input type="number" placeholder="Enter Salary" [(ngModel)]="sal" class="form-control w-auto" />
+
+    <select [(ngModel)]="gender" class="form-select w-auto">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+
+    <input type="text" placeholder="Department" [(ngModel)]="dept" class="form-control w-auto" />
+
+    <select [(ngModel)]="status" class="form-select w-auto">
+      <option value="Active">Active</option>
+      <option value="Inactive">Inactive</option>
+    </select>
+
+    <input type="text" placeholder="Role" [(ngModel)]="role" class="form-control w-auto" />
+
+    <button class="btn btn-success" (click)="addEmployee()">
+      <fa-icon [icon]="faUserPlus" class="me-2"></fa-icon>
+      Add Employee
+    </button>
+  </div>
+</div>
+
+<div class="border border-2 p-2 m-2">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>eId</th>
+        <th>name</th>
+        <th>sal</th>
+        <th>gender</th>
+        <th>dept</th>
+        <th>status</th>
+        <th>role</th>
+        <th>CRUD</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(emp of data;track $index){
+      <tr>
+        <td>{{ emp.eId }}</td>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.sal }}</td>
+        <td>{{ emp.gender }}</td>
+        <td>{{ emp.dept }}</td>
+        <td>{{ emp.status }}</td>
+        <td>{{ emp.role }}</td>
+        <td>
+          <!-- <button class="btn btn-primary mx-2" (click)="viewEmployee(emp)">
+            <fa-icon [icon]="faEye"></fa-icon> View
+          </button> -->
+          <app-my-modal [employee]="emp" class="mx-2">
+    <div>
+      <p><strong>ID:</strong> {{ emp.eId }}</p>
+      <p><strong>Name:</strong> {{ emp.name }}</p>
+      <p><strong>Salary:</strong> {{ emp.sal }}</p>
+      <p><strong>Gender:</strong> {{ emp.gender }}</p>
+      <p><strong>Department:</strong> {{ emp.dept }}</p>
+      <p><strong>Status:</strong> {{ emp.status }}</p>
+      <p><strong>Role:</strong> {{ emp.role }}</p>
+    </div>
+  </app-my-modal>
+          <button class="btn btn-danger mx-2" (click)="confirmDelete(emp.eId)">
+            <fa-icon [icon]="faTrash"></fa-icon>delete
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

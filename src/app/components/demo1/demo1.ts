@@ -33,7 +33,7 @@ export class Demo1 {
   }
 });
   }
-
+  
   snackbar(){
     new Snackbar('Helloooo, Good Morning',
       { position: 'top-center', theme: 'light', timeout: 5000, actionText: 'X' }
