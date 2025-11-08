@@ -8,7 +8,7 @@ import { Assignment1 } from './components/assignment1/assignment1';
 import { Body } from './components/body/body';
 @Component({
   selector: 'app-root',
-  imports: [Navbar,Body],
+  imports: [Navbar,Body,Categories,Footer],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

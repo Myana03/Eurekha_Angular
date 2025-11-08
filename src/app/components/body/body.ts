@@ -12,7 +12,7 @@ import { PipesDemo } from '../pipes-demo/pipes-demo';
 import { ParentDemo } from '../parent-demo/parent-demo';
 @Component({
   selector: 'app-body',
-  imports: [ParentDemo],
+  imports: [],
   templateUrl: './body.html',
   styleUrl: './body.css',
 })
