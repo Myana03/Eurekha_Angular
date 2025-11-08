@@ -1,0 +1,115 @@
+<h3 class="text-center">custom pipes assignment</h3>
+<h2 class="text-center">question 2</h2>
+<div class="border bordered-2 p-2 m-2">
+  <input type="number" [(ngModel)]="toRomanValue" />
+  <div>number to roman value is : {{ toRomanValue | roman }}</div>
+</div>
+
+<h2 class="text-center">question 3</h2>
+<div class="border bordered-2 p-2 m-2">
+  <input type="date" [(ngModel)]="birthday" />
+  <div>number to roman value is : {{ birthday | age }}</div>
+</div>
+
+<h2 class="text-center">question 3</h2>
+<div class="border bordered-2 p-2 m-2">
+  <input type="search" [(ngModel)]="searchtext"> 
+
+</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>eId</th>
+      <th>Name</th>
+      <th>Sal</th>
+      <th>Gender</th>
+      <th>Dept</th>
+      <th>Status</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(emp of employees | search:searchtext;track $index){
+    <tr>
+      <td>{{ emp.eId }}</td>
+      <td>{{ emp.name | salutation : emp.gender  }}</td>
+      <td>{{ emp.sal | currency }}</td>
+      <td>{{ emp.gender }}</td>
+      <td>{{ emp.dept }}</td>
+      <td>{{ emp.status }}</td>
+      <td>{{ emp.role }}
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+
+
+
+<h3 class="text-center">lets learn pipes</h3>
+<div class="border bordered-2 p-2 m-2">
+  <div>lets see lower case upper and title case pipes</div>
+  <div>Name is {{ myName }}</div>
+  <div>Name is {{ myName | uppercase }}</div>
+  <div>Name is {{ myName | titlecase }}</div>
+  <div>Name is {{ myName | lowercase }}</div>
+  <div>{{ salary | currency }}</div>
+  <div>{{ salary | currency : 'INR' }}</div>
+  <!-- input | pipeName : argument -->
+  <div>{{ salary | currency : '&euro;' }}</div>
+  <div>{{ salary | currency : 'USD' : 'code' }}</div>
+</div>
+
+<div class="border bordered-2 p-2 m-2">
+  <div>lets see date pipe</div>
+  <div>{{ dateObj }}</div>
+  <div>{{ dateObj | date }}</div>
+  <div>{{ dateObj | date : 'mediumDate' }}</div>
+  <div>{{ dateObj | date : 'longDate' }}</div>
+  <div>{{ dateObj | date : 'shortDate' }}</div>
+  <div>{{ dateObj | date : 'fullDate' }}</div>
+  <div>{{ dateObj | date : 'shortTime' }}</div>
+  <div>{{ dateObj | date : 'longTime' | uppercase }}</div>
+  <!-- pipe chaning -->
+  <div>{{ dateObj | date : 'shortTime' }}</div>
+  <div>{{ dateObj | date : 'mediumTime' }}</div>
+  <div>{{ dateObj | date : 'dd-MM-yyyy' }}</div>
+  <div>{{ dateObj | date : 'dd-MMM-yyyy' }}</div>
+  <div>{{ dateObj | date : 'short' }}</div>
+  <!-- short date + short Time -->
+</div>
+
+<div class="border bordered-2 p-2 m-2">
+  <div>lets see number pipe or decimal pipe</div>
+  <div>{{ 12.111222333 | number : '3.2-5' }}</div>
+  <div>{{ 12.1 | number : '3.2-5' }}</div>
+  <div>{{ 2.1 | number : '3.2-5' }}</div>
+
+  <div>{{ 2.5 | percent }}</div>
+  <div>{{ 2.5 | percent : '2.2-5' }}</div>
+  <div>{{ 0.024 | percent }}</div>
+</div>
+
+<div class="border bordered-2 p-2 m-2">
+  <div>{{ user }}</div>
+  <div>{{ user | json }}</div>
+</div>
+
+<div class="border bordered-2 p-2 m-2">
+  <div>keyvalue pipe</div>
+  @for(entry of user | keyvalue; track $index){
+  <div>{{ entry.key }}--{{ entry.value }}</div>
+  }
+</div>
+
+<div class="border bordered-2 p-2 m-2">
+  <div>lets see slice pipe</div>
+  <div>{{ arr | slice : 2 }}</div>
+  <div>{{ arr | slice : 2 : 4 }}</div>
+</div>
+
+<div class="border bordered-2 p-2 m-2">
+  <div>custom pipe ordinal</div>
+  <input type="number" [(ngModel)]="num" />
+  <div>output {{ num | ordinal }}</div>
+</div>
