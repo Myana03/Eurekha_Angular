@@ -13,8 +13,7 @@
 
 <h2 class="text-center">question 3</h2>
 <div class="border bordered-2 p-2 m-2">
-  <input type="search" [(ngModel)]="searchtext"> 
-
+  <input type="search" [(ngModel)]="searchtext" />
 </div>
 <table class="table table-bordered">
   <thead>
@@ -32,19 +31,16 @@
     @for(emp of employees | search:searchtext;track $index){
     <tr>
       <td>{{ emp.eId }}</td>
-      <td>{{ emp.name | salutation : emp.gender  }}</td>
+      <td>{{ emp.name | salutation : emp.gender }}</td>
       <td>{{ emp.sal | currency }}</td>
       <td>{{ emp.gender }}</td>
       <td>{{ emp.dept }}</td>
       <td>{{ emp.status }}</td>
-      <td>{{ emp.role }}
-      </td>
+      <td>{{ emp.role }}</td>
     </tr>
     }
   </tbody>
 </table>
-
-
 
 <h3 class="text-center">lets learn pipes</h3>
 <div class="border bordered-2 p-2 m-2">
@@ -112,4 +108,14 @@
   <div>custom pipe ordinal</div>
   <input type="number" [(ngModel)]="num" />
   <div>output {{ num | ordinal }}</div>
+</div>
+
+<div class="border border-2 rounded-2 p-2 m-2">
+  <div>Pure vs Impure Pipe</div>
+  @for(ele of numArray|mysort;track $index){
+  <span>{{ ele }}, &nbsp;</span> }
+  <div>
+    <input #newNum class="mx-1" />
+    <button class="btn btn-primary" (click)="numArray.push(+newNum.value)">Add</button>
+  </div>
 </div>

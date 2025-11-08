@@ -6,10 +6,11 @@ import { RomanPipe } from '../../custom_pipes/roman-pipe';
 import { AgePipe } from '../../custom_pipes/age-pipe';
 import { SalutationPipe } from '../../custom_pipes/salutation-pipe';
 import { SearchPipe } from '../../custom_pipes/search-pipe';
+import { MysortPipe } from '../../custom_pipes/mysort-pipe';
 
 @Component({
   selector: 'app-pipes-demo',
-  imports: [CommonModule, OrdinalPipe,RomanPipe,AgePipe,SalutationPipe,SearchPipe,FormsModule,],
+  imports: [CommonModule, OrdinalPipe,RomanPipe,AgePipe,SalutationPipe,SearchPipe,MysortPipe,FormsModule,],
   templateUrl: './pipes-demo.html',
   styleUrl: './pipes-demo.css',
 })
@@ -30,5 +31,7 @@ export class PipesDemo {
   { eId: 105, name: 'Deepak', sal: 100000, gender: 'male', dept: 'HR', status: 'Inactive', role: 'Manager' }
 ];
 searchtext:string='';
+
+ numArray: number[] = [50, 10, 40, 20, 30]
 
 }

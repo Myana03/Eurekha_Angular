@@ -9,9 +9,10 @@ import { MyModal } from '../my-modal/my-modal';
 import { Demo1 } from '../demo1/demo1';
 import { EmployeeCRUD } from '../employee-crud/employee-crud';
 import { PipesDemo } from '../pipes-demo/pipes-demo';
+import { ParentDemo } from '../parent-demo/parent-demo';
 @Component({
   selector: 'app-body',
-  imports: [PipesDemo],
+  imports: [ParentDemo],
   templateUrl: './body.html',
   styleUrl: './body.css',
 })
