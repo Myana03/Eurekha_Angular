@@ -1,0 +1,17 @@
+<div class="container mt-3">
+  <h3>Employee CRUD</h3>
+  <div class="row">
+    <div class="col-7">
+      <app-employee-table
+        [employees]="employees"
+        (employeeDeleted)="onEmployeeDeleted($event)">
+      </app-employee-table>
+    </div>
+
+    <div class="col-5">
+      <app-employee-add
+        (employeeAdded)="onEmployeeAdded($event)">
+      </app-employee-add>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<h5>Employee Table</h5>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Salary</th>
+      <th>gender</th>
+      <th>dept</th>
+      <th>status</th>
+      <th>role</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (emp of employees; track $index) {
+      <tr>
+        <td>{{ emp.eId }}</td>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.sal }}</td>
+        <td>{{ emp.gender }}</td>
+        <td>{{ emp.dept }}</td>
+        <td>{{ emp.status }}</td>
+        <td>{{ emp.role }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="deleteEmployee(emp.eId)">
+            Del
+          </button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

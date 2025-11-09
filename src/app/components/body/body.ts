@@ -10,9 +10,10 @@ import { Demo1 } from '../demo1/demo1';
 import { EmployeeCRUD } from '../employee-crud/employee-crud';
 import { PipesDemo } from '../pipes-demo/pipes-demo';
 import { ParentDemo } from '../parent-demo/parent-demo';
+import { Employee } from '../employee/employee';
 @Component({
   selector: 'app-body',
-  imports: [],
+  imports: [Employee],
   templateUrl: './body.html',
   styleUrl: './body.css',
 })
