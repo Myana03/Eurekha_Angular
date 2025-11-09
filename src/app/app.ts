@@ -6,9 +6,11 @@ import { Footer } from './components/footer/footer';
 import { DataBinding } from './components/data-binding/data-binding';
 import { Assignment1 } from './components/assignment1/assignment1';
 import { Body } from './components/body/body';
+import { ProductItem } from './components/product-item/product-item';
+import { Products } from './components/products/products';
 @Component({
   selector: 'app-root',
-  imports: [Navbar,Body,Categories,Footer],
+  imports: [Navbar,Body,Footer],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

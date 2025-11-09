@@ -1,48 +1,36 @@
-<h3 class="text-center">Product List</h3>
+<!-- <h3 class="text-center">Product List</h3>
 
-<div class="container">
+
   <div>
     <select [(ngModel)]="selectedCategory" (change)="onCategoryChange()">
-      @for(category of categoryArr;track $index){
-      <option>{{ category }}</option>
+      @for(category of categoryArr; track $index) {
+        <option>{{ category }}</option>
       }
     </select>
   </div>
+
   <div>
-    <input type="search" class="mt-3" [(ngModel)]="searchString" (keyup.enter)="search()" appTextOnly/>
+    <input type="search" class="mt-3" [(ngModel)]="searchString" (keyup.enter)="search()" appTextOnly />
     <button class="btn btn-primary mx-2" (click)="search()">Search</button>
   </div>
+
   <div>
     <button class="btn btn-primary mx-2" (click)="asc()">ASC</button>
     <button class="btn btn-secondary mx-2" (click)="dsc()">DSC</button>
-  </div>
+  </div> -->
+
+<div class="container">
   <div class="row">
-    @for(product of filteredProducts | paginate : {itemsPerPage:6,currentPage:p};track $index){
+    @for(product of filteredProducts | paginate: { itemsPerPage: 6, currentPage: p }; track $index)
+    {
     <div class="col mt-5">
-      <div class="card text-center" style="width: 10rem">
-        <img src="{{ product.image }}" class="card-img-top" style="width: 10rem" appZoomIn/>
-        <div class="card-body text-center" appZoomIn>
-          <h5 class="card-title text-truncate">
-            <fa-icon [icon]="faTags"></fa-icon>{{ product.category }}
-          </h5>
-          <p class="card-text text-truncate">
-            <fa-icon [icon]="faInfoCircle"></fa-icon>{{ product.description }}
-          </p>
-          <p class="card-text">{{ product.title }}<fa-icon [icon]="faBoxOpen"></fa-icon></p>
-          <p class="card-text">
-            Price: {{ product.price }}<fa-icon [icon]="faDollarSign"></fa-icon>
-          </p>
-          <p class="card-text">
-            Ratings: {{ product.rating.rate }}<fa-icon [icon]="faStar"></fa-icon>
-          </p>
-        </div>
-      </div>
+      <app-product-item [product]="product"></app-product-item>
     </div>
     }
-  </div>
-  <div class="row">
-    <div class="col-sm-6 mt-4">
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <div class="row">
+      <div class="col-sm-6 mt-4">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
     </div>
   </div>
 </div>

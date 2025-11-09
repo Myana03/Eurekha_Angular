@@ -4,71 +4,41 @@ import { FormsModule } from '@angular/forms';
 import { TextOnly } from '../../custom_directives/text-only';
 import { ZoomIn } from '../../custom_directives/zoom-in';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {
-  faPhone,
-  faEnvelope,
-  faStar,
-  faLandmark,
-  faAddressBook,
-  faUser,
-  faDollarSign,
-  faTags,
-  faInfoCircle,
-  faBoxOpen,
-} from '@fortawesome/free-solid-svg-icons';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ProductItem } from '../product-item/product-item';
 
 @Component({
   selector: 'app-products',
-  imports: [FormsModule, FontAwesomeModule, NgxPaginationModule,TextOnly,ZoomIn],
+  imports: [FormsModule, FontAwesomeModule, NgxPaginationModule, TextOnly, ProductItem],
   templateUrl: './products.html',
   styleUrl: './products.css',
 })
 export class Products {
   filteredProducts = products;
-  categoryArr: string[] = [];
-  selectedCategory: string = 'all';
+  // categoryArr: string[] = [];
+  // selectedCategory: string = 'all';
+  // searchString: string = '';
+  // p: number = 1;
 
-  constructor() {
-    this.categoryArr = products.map((prod) => prod.category); // duplicate categories
-    this.categoryArr = ['all', ...new Set(this.categoryArr)]; // unique categories
-  }
-  onCategoryChange() {
-    if (this.selectedCategory === 'all') {
-      this.filteredProducts = products;
-    } else {
-      this.filteredProducts = products.filter(
-        (product) => product.category === this.selectedCategory
-      );
-    }
-  }
+  // constructor() {
+  //   this.categoryArr = ['all', ...new Set(products.map(p => p.category))];
+  // }
 
-  searchString: String = '';
-  search() {
-    const searchWord = this.searchString.toLowerCase();
-    this.filteredProducts = products.filter(
-      (p) =>
-        p.title.toLowerCase().includes(searchWord) ||
-        p.description.toLowerCase().includes(searchWord) ||
-        p.category.toLowerCase().includes(searchWord)
-    );
-  }
+  // onCategoryChange() {
+  //   this.filteredProducts = this.selectedCategory === 'all'
+  //     ? products
+  //     : products.filter(p => p.category === this.selectedCategory);
+  // }
 
-  asc(){
-    this.filteredProducts.sort((a,b)=>
-      a.price-b.price
-    );
-  }
+  // search() {
+  //   const word = this.searchString.toLowerCase();
+  //   this.filteredProducts = products.filter(
+  //     p => p.title.toLowerCase().includes(word) ||
+  //          p.description.toLowerCase().includes(word) ||
+  //          p.category.toLowerCase().includes(word)
+  //   );
+  // }
 
-    dsc(){
-    this.filteredProducts.sort((a,b)=>
-      b.price-a.price
-    );
-  }
-  faStar = faStar;
-  faDollarSign = faDollarSign;
-  faTags = faTags;
-  faInfoCircle = faInfoCircle;
-  faBoxOpen = faBoxOpen;
-  p: number = 1;
+  // asc() { this.filteredProducts.sort((a, b) => a.price - b.price); }
+  // dsc() { this.filteredProducts.sort((a, b) => b.price - a.price); }
 }
