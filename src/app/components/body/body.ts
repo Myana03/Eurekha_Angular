@@ -11,9 +11,10 @@ import { EmployeeCRUD } from '../employee-crud/employee-crud';
 import { PipesDemo } from '../pipes-demo/pipes-demo';
 import { ParentDemo } from '../parent-demo/parent-demo';
 import { Employee } from '../employee/employee';
+import { EmployeeComponent } from '../employee-component/employee-component';
 @Component({
   selector: 'app-body',
-  imports: [Employee],
+  imports: [EmployeeComponent],
   templateUrl: './body.html',
   styleUrl: './body.css',
 })

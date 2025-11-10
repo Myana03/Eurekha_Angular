@@ -7,12 +7,12 @@ import Swal from 'sweetalert2';
   imports: [FormsModule],
   templateUrl: './employee-table.html',
   styleUrl: './employee-table.css',
-  inputs:['employees',],
+  inputs:['employees'],
   outputs:['employeeDeleted']
 })
 export class EmployeeTable {
   employees:any[]=[]
-  employeeDeleted = new EventEmitter<number>()
+  employeeDeleted = new EventEmitter()
  deleteEmployee(id: number) {
     Swal.fire({
       title: 'Are you sure?',

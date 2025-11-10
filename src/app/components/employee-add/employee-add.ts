@@ -10,7 +10,7 @@ import Snackbar from 'awesome-snackbar';
   outputs:['employeeAdded']
 })
 export class EmployeeAdd {
- employeeAdded = new EventEmitter<any>();
+ employeeAdded = new EventEmitter();
 
   newEmp = { eId: 0, name: '', sal: 0 ,gender: '',dept: '',status:'',role:''};
 

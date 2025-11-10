@@ -1,0 +1,51 @@
+<h2 class="text-center">EmployeeService Assignment</h2>
+
+<select [(ngModel)]="employee" (change)="employeeTypes()">
+  <option value="" disabled selected>Select employee type</option>
+  <option value="allEmployees">allEmployees</option>
+  <option value="maleEmployees">maleEmployees</option>
+  <option value="femaleEmployees">femaleEmployees</option>
+</select>
+@if (employee) {
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>eId</th>
+      <th>name</th>
+      <th>gender</th>
+      <th>sal</th>
+      <th>status</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(emp of employeeArr; track $index){
+    <tr>
+      <td>{{ emp.eId }}</td>
+      <td>{{ emp.name }}</td>
+      <td>{{ emp.gender }}</td>
+      <td>{{ emp.sal }}</td>
+      <td>{{ emp.status }}</td>
+    </tr>
+    }
+  </tbody>
+</table>}
+
+
+@if (employee) {
+  <div class="row mb-3">
+    @for (emp of employeeArr; track $index) {
+      <div class="col-3 mb-3">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">{{ emp.name }}</h5>
+            <p class="card-text mb-1"><strong>ID:</strong> {{ emp.eId }}</p>
+            <p class="card-text mb-1"><strong>Gender:</strong> {{ emp.gender }}</p>
+            <p class="card-text mb-1"><strong>Salary:</strong> ₹{{ emp.sal }}</p>
+            <p class="card-text mb-1"><strong>Status:</strong> {{ emp.status }}</p>
+            <p class="card-text"><strong>Department:</strong> {{ emp.dept }}</p>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}

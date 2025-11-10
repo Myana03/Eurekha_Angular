@@ -18,7 +18,7 @@ export class Products {
   // categoryArr: string[] = [];
   // selectedCategory: string = 'all';
   // searchString: string = '';
-  // p: number = 1;
+   p: number = 1;
 
   // constructor() {
   //   this.categoryArr = ['all', ...new Set(products.map(p => p.category))];
