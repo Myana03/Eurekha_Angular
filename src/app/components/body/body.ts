@@ -12,9 +12,11 @@ import { PipesDemo } from '../pipes-demo/pipes-demo';
 import { ParentDemo } from '../parent-demo/parent-demo';
 import { Employee } from '../employee/employee';
 import { EmployeeComponent } from '../employee-component/employee-component';
+import { CommentList } from '../comment-list/comment-list';
+import { HttpModuleAssignment } from '../http-module-assignment/http-module-assignment';
 @Component({
   selector: 'app-body',
-  imports: [EmployeeComponent],
+  imports: [HttpModuleAssignment],
   templateUrl: './body.html',
   styleUrl: './body.css',
 })

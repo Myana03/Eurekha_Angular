@@ -1,0 +1,25 @@
+<h3 class="text-center">stocks Assignment using httpClient</h3>
+<table class="table table-bordered">
+      <thead>
+            <tr>
+                <th>tickerSymbol</th>
+                <th>sectorID</th>
+                <th>subSectorID</th>
+                <th>marketCap</th>
+                <th>currentRatio</th>
+                <!-- <th>cumulativeReturn</th> -->
+            </tr>
+        </thead>
+    <tbody>
+        @for(stock of stocksArr; track $index){
+        <tr>
+            <td>{{stock.tickerSymbol}}</td>
+            <td>{{stock.sectorID}}</td>
+            <td>{{stock.subSectorID}}</td>
+            <td>{{stock.marketCap}}</td>
+            <td>{{stock.currentRatio}}</td>
+            <!-- <td>{{stock?.cumulativeReturn}}</td> -->
+        </tr>
+    }
+    </tbody>
+</table>

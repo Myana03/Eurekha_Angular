@@ -1,0 +1,14 @@
+<h3 class="text-center">fetch data using http client</h3>
+
+<table class="table table-bordered table-striped">
+    <tbody>
+        @for(comment of commentArr;track $index){
+            <tr>
+            <td>{{comment?.id}}</td>
+            <td>{{comment?.postId}}</td>
+            <td>{{comment.name}}</td>
+            <td>{{comment.email}}</td>
+            </tr>
+        }
+    </tbody>
+</table>
