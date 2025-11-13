@@ -14,9 +14,10 @@ import { Employee } from '../employee/employee';
 import { EmployeeComponent } from '../employee-component/employee-component';
 import { CommentList } from '../comment-list/comment-list';
 import { HttpModuleAssignment } from '../http-module-assignment/http-module-assignment';
+import { EmployeeList } from '../employee-list/employee-list';
 @Component({
   selector: 'app-body',
-  imports: [CommentList],
+  imports: [EmployeeList],
   templateUrl: './body.html',
   styleUrl: './body.css',
 })
