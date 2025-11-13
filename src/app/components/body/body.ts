@@ -16,7 +16,7 @@ import { CommentList } from '../comment-list/comment-list';
 import { HttpModuleAssignment } from '../http-module-assignment/http-module-assignment';
 @Component({
   selector: 'app-body',
-  imports: [HttpModuleAssignment],
+  imports: [CommentList],
   templateUrl: './body.html',
   styleUrl: './body.css',
 })
