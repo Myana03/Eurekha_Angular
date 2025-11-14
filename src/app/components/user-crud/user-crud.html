@@ -1,0 +1,45 @@
+<h3 class="text-center">User Assignment</h3>
+<h5>User table data</h5>
+<div class="row">
+    <div class="col-8">
+      @if (loading) {
+  <div class="text-center">
+    <p>Loading...</p>
+  </div>
+} @else {
+<table class="table table-bordered-2 table-striped">
+    
+    <tbody>
+        @for(u of usersArr;track $index){
+        <tr>
+            <td>{{u.id}}</td>
+            <td>{{u.firstName}}</td>
+            <td>{{u.lastName}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.gender}}</td>
+             <td>{{u.age}}</td>
+             <td><button class="btn btn-danger" (click)="deleteUser(u.id)">delete</button></td>
+              <td>
+          <button class="btn btn-warning btn-sm" (click)="edit(u)">Edit</button>
+        </td>
+        </tr>
+    }
+    </tbody>
+
+</table>
+}
+</div>
+<div class="col-4">
+  <h5>Add User</h5>
+    <input class="form-control mb-2" type="text" placeholder="Id" [(ngModel)]="id">
+  <input class="form-control mb-2" type="text" placeholder="First Name" [(ngModel)]="FirstName">
+  <input class="form-control mb-2" type="text" placeholder="Last Name" [(ngModel)]="LastName">
+  <input class="form-control mb-2" type="email" placeholder="Email" [(ngModel)]="Email">
+  <input class="form-control mb-2" type="text" placeholder="Gender" [(ngModel)]="Gender">
+  <input class="form-control mb-2" type="text" placeholder="Age" [(ngModel)]="Age">
+
+  <button class="btn btn-primary mt-2" (click)="addnewuser()">Save User</button>
+  <button class="btn btn-success mt-2 ms-2" (click)="updateUser()">Update</button>
+</div>
+
+</div>

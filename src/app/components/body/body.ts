@@ -12,12 +12,14 @@ import { PipesDemo } from '../pipes-demo/pipes-demo';
 import { ParentDemo } from '../parent-demo/parent-demo';
 import { Employee } from '../employee/employee';
 import { EmployeeComponent } from '../employee-component/employee-component';
-import { CommentList } from '../comment-list/comment-list';
+//import { CommentList } from '../comment-list/comment-list';
 import { HttpModuleAssignment } from '../http-module-assignment/http-module-assignment';
 import { EmployeeList } from '../employee-list/employee-list';
+import { UserCrud } from '../user-crud/user-crud';
+import { ObservableDemo1 } from '../observable-demo1/observable-demo1';
 @Component({
   selector: 'app-body',
-  imports: [EmployeeList],
+  imports: [ObservableDemo1],
   templateUrl: './body.html',
   styleUrl: './body.css',
 })

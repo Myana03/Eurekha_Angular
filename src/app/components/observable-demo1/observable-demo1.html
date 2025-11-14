@@ -1,0 +1,10 @@
+<h3 class="text-center">lets learn observable</h3>
+
+<div class="border border-3 rounded-3 p-3 m-3">
+  <h4>Subscribing an observable using async pipe</h4>
+  <div>Num value is:: {{ numPublisher | async }}</div>
+  <div>Even Numbers are:: {{ evenNumPublisher | async }}</div>
+  <div>Square value is:: {{ squarePublisher | async }}</div>
+</div>
+
+<p>{{currentTime$|async}}</p>
