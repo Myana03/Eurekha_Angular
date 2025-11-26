@@ -49,11 +49,7 @@ addnewuser(){
       this.usersArr.push(res);
       //this.fetchUsersdata;
 
-      this.id = '';
-      this.FirstName = '';
-      this.LastName = '';
-      this.Email = '';
-      this.Gender = '';
+         this.resetForm();
     })
 }
 

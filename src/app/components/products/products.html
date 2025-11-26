@@ -19,7 +19,7 @@
     <button class="btn btn-secondary mx-2" (click)="dsc()">DSC</button>
   </div> -->
 
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     @for(product of filteredProducts | paginate: { itemsPerPage: 6, currentPage: p }; track $index)
     {
@@ -33,4 +33,43 @@
       </div>
     </div>
   </div>
+</div> -->
+
+
+<h3 class="text-center">Product List</h3>
+
+<div class="container">
+  <div class="row mb-2">
+    <div class="col-sm-2">
+      <select [(ngModel)]="selectedCategory" (change)="onCategoryChange()">
+        @for(category of categoryArr;track $index){
+        <option>{{ category }}</option>
+        }
+      </select>
+    </div>
+    <div class="col-sm-8">
+      <input type="search" class="col-sm-8" placeholder="Search..." appTextonly />
+      <button class="btn btn-secondary">Search</button>
+    </div>
+    <div class="col-sm-2">
+      <button class="btn btn-primary mx-1">Asc</button>
+      <button class="btn btn-secondary">Desc</button>
+    </div>
+  </div>
+  <div class="row">
+    @for(product of filteredProducts;track $index){
+    <div class="col-sm-3 card">
+      <img src="{{ product.image }}" class="card-img-top" style="height: 200px" />
+      <div class="card-body text-center" zoomin>
+        <h5 class="card-title text-truncate">{{ product.category }}</h5>
+        <p class="card-text text-truncate">{{ product.description }}</p>
+        <p class="card-text">{{ product.title }}</p>
+        <p class="card-text">Price: {{ product.price }}</p>
+        <p class="card-text">Ratings: {{ product.rating.rate }}</p>
+        <button class="btn btn-primary" (click)="addToCart(product)">Add To Cart</button>
+      </div>
+    </div>
+    }
+  </div>
 </div>
+

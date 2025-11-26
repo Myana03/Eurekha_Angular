@@ -1,0 +1,22 @@
+<h2>Employee Manager</h2>
+
+<input placeholder="ID" [(ngModel)]="eId">
+<input placeholder="Name" [(ngModel)]="name">
+<input placeholder="Salary" [(ngModel)]="sal">
+<input placeholder="Gender" [(ngModel)]="gender">
+
+<button class="button btn btn-primary mx-2" (click)="addEmployee()">Add</button>
+<button class="button btn btn-danger mx-2" (click)="clearAll()">Clear All</button>
+
+<hr>
+
+<h3>Employees</h3>
+
+<ul>
+  @for (emp of employees; track $index) {
+    <li>
+      {{ emp.eId }} - {{ emp.name }} - {{ emp.sal }} - {{ emp.gender }}
+      <button class="button btn btn-danger btn-sm mt-2" (click)="deleteEmployee(emp.eId)">Delete</button>
+    </li>
+  }
+</ul>
