@@ -20,10 +20,17 @@ import { ObservableDemo1 } from '../observable-demo1/observable-demo1';
 import { ObservableDemo2 } from '../observable-demo2/observable-demo2';
 import { ObservableDemo3 } from '../observable-demo3/observable-demo3';
 import { EmpSubjectComponent } from '../emp-subject-component/emp-subject-component';
+import { EffectDemo } from '../effect-demo/effect-demo';
+//import { FormDemo1 } from '../form-demo1/form-demo1';
+import { TemplateDrivenForm } from '../template-driven-form/template-driven-form';
+import { SignalAssignment } from '../signal-assignment/signal-assignment';
+import { ModelDrivenForm } from '../model-driven-form/model-driven-form';
+import { DynamicForm } from '../dynamic-form/dynamic-form';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-body',
-  imports: [EmpSubjectComponent],
+  imports: [RouterOutlet],
   templateUrl: './body.html',
   styleUrl: './body.css',
 })

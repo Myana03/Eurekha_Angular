@@ -23,6 +23,8 @@
             <fa-icon [icon]="faAddressBook"></fa-icon> Street :: {{ user.address.street }}
           </p>
           <p class="card-text"><fa-icon [icon]="faPhone"></fa-icon>Phone :: {{ user.phone }}</p>
+          <button class="btn btn-primary" [routerLink]="['/user-details', user.id]">
+        View Details</button>
           <!-- <a href="#" class="btn btn-primary">Details</a> -->
         </div>
       </div>

@@ -1,0 +1,244 @@
+<!-- <h3 class="text-center">Template Driven Form</h3>
+
+<div class="col-sm-6 offset-3 border border-3 rounded-3 p-3">
+  <form #signupForm="ngForm" (submit)="submitForm(signupForm)">
+    <p>
+      FirstName:
+      <input name="firstName" #firstName="ngModel" ngModel required minlength="5" />  
+      @if(firstName.hasError('required') && firstName.dirty){
+        <span class="text-danger mx-2">FirstName is Required</span>
+      }
+      @if(firstName.hasError('minlength') && firstName.dirty){
+        <span class="text-danger mx-2">FirstName Should have minimum 5 chars</span>
+      }
+    </p>
+    <p>
+      LastName:
+      <input name="lastName" ngModel />
+    </p>
+    <p>
+      Email:
+      <input name="email" ngModel />
+    </p>
+    <div ngModelGroup="address">
+      <p>
+        City:
+        <input name="city" ngModel />
+      </p>
+      <p>
+        State:
+        <input name="state" ngModel />
+      </p>
+      <p>
+        Pincode:
+        <input name="pincode" ngModel />
+      </p>
+    </div>
+
+    <input type="reset" value="Clear" class="btn btn-danger ml-5" />
+    <input type="submit" value="Submit" [disabled]="signupForm.invalid" class="btn btn-primary mx-2"/>
+  </form>
+  <hr>
+  <pre>
+    {{signupForm.value | json}}
+  </pre>
+</div> -->
+
+<!-- <div class="border border-2 rounded-2 p-2 m-2">
+  <form #myForm="ngForm" (submit)="printFormData(myForm)">
+    <p>
+      FirstName:
+      <input name="firstName" class="form-control" #fname=ngModel  ngModel required minlength="5"/>
+      @if(fname.hasError('required') && fname.dirty){
+       
+        <span class="text-danger">firstName is required</span>
+      }
+       @if(fname.hasError('minlength') && fname.dirty){
+       
+        <span class="text-danger">5 chars are required</span>
+      }
+    </p>
+    <p>
+      LastName:
+      <input name="lastName" class="form-control" ngModel />
+    </p>
+    <div class="border border-2 rounded-2 p-2 m-2" ngModelGroup="address">
+      <p>
+        Country
+        <input name="country" class="form-control" ngModel />
+      </p>
+      <p>
+        State
+        <input name="state" class="form-control" ngModel />
+      </p>
+      <p>
+        City
+        <input name="city" class="form-control" ngModel />
+      </p>
+    </div>
+
+    <input type="submit" value="submit" class="btn btn-primary" />
+  </form>
+  <pre>
+  {{ myForm.value | json }}
+</pre
+  >
+</div> -->
+
+<div class="border border-2 rounded-2 p-2">
+  <form #AssignmentForm="ngForm" (submit)="printFormdata(AssignmentForm)">
+    <p>
+      Full Name:
+      <input
+        name="fullname"
+        #fname="ngModel"
+        ngModel
+        required
+        minlength="5"
+        pattern="^[A-Za-z][A-Za-z ]*$"
+      />
+      @if(fname.hasError('required') && fname.dirty){
+      <span class="text-danger"> full name is required</span>
+      } @if(fname.hasError('minlength')){
+      <span class="text-danger"> min 5 character are required</span>
+      } @if(fname.hasError('pattern')){
+      <span class="text-danger"> invalid format</span>
+      }
+    </p>
+    <p>
+      Gender:
+      <span class="mx-2">Male</span>
+      <input type="radio" name="gender" value="male" ngModel #gen="ngModel" required />
+      <span class="mx-2">Female</span>
+      <input type="radio" name="gender" value="female" ngModel required />
+
+      @if(gen.invalid && gen.dirty){
+      <span class="text-danger">select an option</span>
+      }
+    </p>
+    <p> Email:
+  <input
+    type="email"
+    name="email"
+    ngModel
+    #em="ngModel"
+    required
+    email
+  />
+
+  @if(em.hasError('required') && (em.dirty || formSubmitted)){
+    <span class="text-danger">Email is required</span>
+  }
+  @if(em.hasError('email') && (em.dirty || formSubmitted)){
+    <span class="text-danger">Invalid email address</span>
+  }
+</p>
+
+    Departments:
+    <select name="departments" #departments="ngModel" ngModel required>
+      <option value="" disabled selected>Select Department</option>
+      <option value="Software Engineering">Software Engineering</option>
+      <option value="HR">HR</option>
+      <option value="Finance">Finance</option>
+      <option value="Operations">Operations</option>
+      <option value="Marketing">Marketing</option>
+    </select>
+    @if(departments.invalid && departments.dirty){
+    <span class="text-danger">Select a department</span>
+    }
+
+    <p class="mt-2">
+      Skills:
+
+      <input class="mx-2" type="checkbox" [(ngModel)]="skills.java" name="java" /> Java
+
+      <input class="mx-2" type="checkbox" [(ngModel)]="skills.angular" name="angular" /> Angular
+
+      <input class="mx-2" type="checkbox" [(ngModel)]="skills.sql" name="sql" /> SQL
+
+      <input class="mx-2" type="checkbox" [(ngModel)]="skills.aws" name="aws" /> AWS
+
+      <input class="mx-2" type="checkbox" [(ngModel)]="skills.python" name="python" /> Python
+      @if(!isAnySkillSelected() && formSubmitted){
+      <span class="text-danger">Select at least one skill</span>
+      }
+    </p>
+
+    <p> Experience (Years):
+  <input
+    type="number"
+    name="experience"
+    ngModel
+    #exp="ngModel"
+    required
+    min="0"
+    max="30"
+    pattern="^[0-9]+$"
+  />
+
+  @if(exp.hasError('required') && (exp.dirty || formSubmitted)) {
+    <span class="text-danger">Experience is required</span>
+  }
+
+  @if(exp.hasError('pattern') && (exp.dirty || formSubmitted)) {
+    <span class="text-danger">Enter a valid number</span>
+  }
+
+  @if(exp.hasError('min') && (exp.dirty || formSubmitted)) {
+    <span class="text-danger">Experience cannot be negative</span>
+  }
+  @if(exp.hasError('max') && (exp.dirty || formSubmitted)) {
+    <span class="text-danger">Experience must be 30 or less</span>
+  }
+</p>
+
+<p> Address:
+  <textarea
+    name="address"
+    ngModel
+    #addr="ngModel"
+    required
+    minlength="10"
+    maxlength="200"
+  ></textarea>
+
+
+  @if(addr.hasError('required') && (addr.dirty || formSubmitted)){
+    <span class="text-danger">Address is required</span>
+  }
+
+
+  @if(addr.hasError('minlength') && (addr.dirty || formSubmitted)){
+    <span class="text-danger">Minimum 10 characters required</span>
+  }
+
+
+  @if(addr.hasError('maxlength') && (addr.dirty || formSubmitted)){
+    <span class="text-danger">Maximum 200 characters allowed</span>
+  }
+</p>
+<p> Phone Number:
+  <input
+    type="text"
+    name="phone"
+    ngModel
+    #ph="ngModel"
+    required
+    pattern="^[0-9]{10}$"
+  />
+
+ 
+  @if(ph.hasError('required') && (ph.dirty || formSubmitted)){
+    <span class="text-danger">Phone number is required</span>
+  }
+  @if(ph.hasError('pattern') && (ph.dirty || formSubmitted)){
+    <span class="text-danger">Phone must be exactly 10 digits</span>
+  }
+</p>
+<!-- <input type="submit" value="clear" class="btn btn-primary" /> -->
+<input type="submit" value="Submit"  class="btn btn-primary mx-2"/>
+  </form>
+  <pre>
+    {{AssignmentForm.value|json}}
+  </pre>
+</div>

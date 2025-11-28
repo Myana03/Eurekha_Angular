@@ -1,0 +1,58 @@
+<h3 class="text-center">Reactive Form</h3>
+
+<div class="col-sm-6 offset-3 border border-3 rounded-3 p-3">
+  <form [formGroup]="signupForm">
+
+    <p>
+      <label>First Name:</label>
+      <input formControlName="firstName" class="form-control" />
+
+      @if(signupForm.controls['firstName'].touched || signupForm.controls['firstName'].dirty) {
+
+        @if(signupForm.controls['firstName'].hasError('required')){
+          <span class="text-danger">First Name is required</span>
+        }
+
+        @if(signupForm.controls['firstName'].hasError('minlength')){
+          <span class="text-danger">First Name should have minimum 5 characters</span>
+        }
+
+      }
+    </p>
+
+    <p>
+      <label>Last Name:</label>
+      <input formControlName="lastName" class="form-control" />
+    </p>
+
+ 
+    <p>
+      <label>Email:</label>
+      <input formControlName="email" class="form-control" />
+    </p>
+
+
+    <div formGroupName="address" class="border p-2 rounded">
+
+      <p>
+        <label>City:</label>
+        <input formControlName="city" class="form-control" />
+      </p>
+
+      <p>
+        <label>State:</label>
+        <input formControlName="state" class="form-control" />
+      </p>
+
+      <p>
+        <label>Pincode:</label>
+        <input formControlName="pincode" class="form-control" />
+      </p>
+
+    </div>
+
+    <button class="btn btn-primary mt-3" (click)="submitMyForm()">Submit Form</button>
+
+    <pre>{{ signupForm.value | json }}</pre>
+  </form>
+</div>
