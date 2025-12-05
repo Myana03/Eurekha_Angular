@@ -1,4 +1,4 @@
-<h1>Angular Nested FormArray / Dynamic FormArray</h1>
+<!-- <h1>Angular Nested FormArray / Dynamic FormArray</h1>
 <form [formGroup]="empForm" (ngSubmit)="onSubmit()">
     <div formArrayName="employees">
         <div *ngFor="let employee of getAllEmployees().controls; let empIndex=index">
@@ -34,4 +34,40 @@
 </form>
 
 <pre>{{this.empForm.value | json}}</pre>
- 
+  -->
+
+<h2>Skills List (Reactive FormArray)</h2>
+
+<form [formGroup]="skillsForm" (ngSubmit)="onSubmit()">
+
+  <div formArrayName="skills">
+
+  @for (skillGroup of getSkills().controls; track i; let i = $index) {
+
+      <div [formGroupName]="i" class="skill-box">
+
+        <label>Skill:</label>
+        <input type="text" formControlName="skill" />
+
+        <label>Experience:</label>
+        <input type="text" formControlName="exp" />
+
+        <button type="button" (click)="removeSkill(i)">Remove</button>
+      </div>
+    }
+
+  </div>
+
+  <button type="button" (click)="addSkill()">Add Skill</button>
+  <button type="submit">Submit</button>
+
+</form>
+
+<hr />
+
+<pre>{{ skillsForm.value | json }}</pre>
+
+
+
+
+

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MyModal } from '../my-modal/my-modal';
 import { Cart } from '../cart/cart';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { UserInfoService } from '../../services/user-info';
 
 @Component({
   selector: 'app-navbar',
@@ -10,5 +11,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './navbar.css',
 })
 export class Navbar {
+    userInfoService = inject(UserInfoService);
+  userRole:string = '';
+  
+  ngOnInit(){
+    this.userRole = this.userInfoService.userRole;
+  }
 
 }

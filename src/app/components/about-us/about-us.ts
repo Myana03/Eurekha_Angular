@@ -8,9 +8,10 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './about-us.css',
 })
 export class AboutUs {
-  constructor(private obj:Router){}
-doSoemthingAndGoToHome(){
-  console.log("do something/....")
-this.obj.navigate(['/home'])
-}
+  constructor(private obj: Router) {}
+
+  doSoemthingAndGoToHome() {
+    console.log('do something/....');
+    this.obj.navigate(['/home']);
+  }
 }

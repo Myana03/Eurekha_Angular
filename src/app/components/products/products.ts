@@ -51,11 +51,12 @@ import products from './products_data';
 import { FormsModule } from '@angular/forms';
 
 import { CartService } from '../../services/cart-service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-products',
   imports: [
-    FormsModule,
+    FormsModule,RouterLink,
   ],
   templateUrl: './products.html',
   styleUrl: './products.css',
